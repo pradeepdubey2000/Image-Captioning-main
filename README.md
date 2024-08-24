@@ -5,7 +5,8 @@
 In this project, I'll create a neural network architecture consisting of both CNNs (Encoder) and LSTMs (Decoder) to automatically generate captions from images.
 The network will be trained on the Microsoft Common Objects in COntext [(MS COCO)](http://cocodataset.org/#home) dataset. The image captioning model is displayed below.
 
-![Image Captioning Model](images/cnn_rnn_model.png?raw=true) [Image source](https://arxiv.org/pdf/1411.4555.pdf)
+![image](https://github.com/user-attachments/assets/afdd7d0f-d857-47dd-9644-2ac0d3624195)
+ [Image source](https://arxiv.org/pdf/1411.4555.pdf)
 
 
 
@@ -33,7 +34,8 @@ The network will be trained on the Microsoft Common Objects in COntext [(MS COCO
 ### About MS COCO dataset
 The Microsoft COCO dataset is a large-scale resource for scene understanding, commonly used to train and benchmark object detection, segmentation, and captioning algorithms.
 
-![Sample Coco Example](images/coco-examples.jpg)
+![image](https://github.com/user-attachments/assets/fbfa4eaa-12ed-4a9a-8b84-3cb2a68d87f1)
+
 
 
 1. Download some specific data from here: http://cocodataset.org/#download (described below)
@@ -48,12 +50,20 @@ The Microsoft COCO dataset is a large-scale resource for scene understanding, co
 
 ## Jupyter Notebooks
 
- The implementations of the EncoderCNN and DecoderRNN are found in the [model.py](model.py) file.
+### 1. **Training notebook**
+ - This notebook provides the selection of hyperparameter values and EncoderRNN training. The hyperparameter selection is also explained.
+
+### 2. **Inference notebook**
+  - This notebook contains the testing of the trained networks to generate captions for additional images.
+ 
+ **The implementations of the EncoderCNN and DecoderRNN are found in the [model.py](model.py) file.**
 
 The core architecture used to achieve this task follows an encoder-decoder architecture, where the encoder is a pretrained ResNet CNN on ImageNet, and the decoder is a basic one-layer LSTM.
 
-#### Architecture Details
-![encoder-decoder-architecture](images/encoder-decoder.png)
+## Architecture Details
+![encoder-decoder-architecture]
+![image](https://github.com/user-attachments/assets/bc9c0392-37d5-438a-9fd0-6b76fc50b29c)
+
 
 ### 1. **CNN Encoder:**
    - The CNN encoder, a pre-trained ResNet, extracts both low-level and high-level features from the input image, converting them into a feature vector. The last fully connected layer of ResNet is replaced with a trainable fully connected layer to adapt the feature map for the RNN decoder. This layer is trained from scratch to ensure that the output encoding is suitable for the sequential nature of the caption generation task.
